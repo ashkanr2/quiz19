@@ -1,4 +1,8 @@
 # quiz19
 quiz 19
-if the name is Id  it use for primary key az default
+ویژوال استادیو من دقیقا اول ازمون ترکید 
+اگه نام ایدی رو Id بزاریم و یا بالاش [key ]
+به عنوان primary key در نظر میگیرد
+
+
 
