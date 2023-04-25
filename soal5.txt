@@ -1,0 +1,10 @@
+https://github.com/ashkanr2/quiz19/
+
+
+
+SELECT 
+  i.invoice_number, 
+  s.supplier_name 
+FROM 
+  invoices i 
+  INNER JOIN suppliers s ON i.supplier_id = s.supplier_id;

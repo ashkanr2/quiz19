@@ -1,0 +1,23 @@
+https://github.com/ashkanr2/quiz19
+
+public class MyDbContext : DbContext
+{
+    public DbSet<Customer> Customers { get; set; }
+    public DbSet<Supplier> Suppliers { get; set; }
+    public DbSet<Invoice> Invoices { get; set; }
+    public DbSet<Product> Products { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Customer>()
+            .HasMany(c => c.Invoices)
+            .WithOne(i => i.Customer)
+            .HasForeignKey(i => i.CustomerId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<Invoice>()
+            .HasMany(i => i.Products)
+            .WithMany(p => p.Invoices)
+            .UsingEntity(j => j.ToTable("InvoiceProducts"));
+
+       }
